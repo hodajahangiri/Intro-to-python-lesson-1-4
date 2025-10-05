@@ -5,8 +5,8 @@ def calculate_budget(monthly_income, rent_expense, food_expense, entertainment_e
     remaining_money = monthly_income - total_expenses
     print("=== BUDGET SUMMARY ===")
     print(f"Monthly Income: ${monthly_income:.2f}")
-    print(f"Total Expenses: ${total_expenses}")
-    print(f"Remaining Money: ${remaining_money}")
+    print(f"Total Expenses: ${total_expenses:.2f}")
+    print(f"Remaining Money: ${remaining_money:.2f}")
     if remaining_money < 0:
         print ("Budget Advice: You're overspending! Cut back on expenses.")
     elif remaining_money < 100:
@@ -25,6 +25,8 @@ while stop == False:
         calculate_budget(monthly_income, rent_expense, food_expense, entertainment_expense)
     except ValueError:
         print("Enter a valid price! ")
+    except Exception as e:
+        print(f"Something went wrong: {e}")
         continue
     stop_variable = input("To stop calculating press: No/N ")
     if stop_variable.lower() in ["no", "n"]:
